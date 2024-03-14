@@ -2,8 +2,7 @@ import InputView from "./view/InputView";
 import OutputView from "./view/OutputView";
 import Event from "./store/Event";
 import EventDate from "./store/EventDate";
-import Menu from "./store/Menu";
-import { Console } from "@woowacourse/mission-utils";
+import Order from "./store/Order";
 
 class App {
   async run() {
@@ -14,7 +13,10 @@ class App {
 
     const inputDate = inputView.getDate();
     const eventDate = new EventDate(inputDate);
-    const inputMenu = inputView.getOrder();
+    const inputOrder = inputView.getOrder();
+    const order = new Order(inputOrder);
+
+    outputView.printPreview();
   }
 }
 
