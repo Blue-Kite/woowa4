@@ -1,18 +1,31 @@
-class EventDate {
-  #numbers;
+import { ERROR } from "../constants/Message";
+import { Console } from "@woowacourse/mission-utils";
 
-  constructor(numbers) {
-    this.#validate(numbers);
-    this.#numbers = numbers;
+class EventDate {
+  #eventDate;
+
+  constructor(eventDate) {
+    this.#validate(eventDate);
+    this.#eventDate = Number(eventDate);
   }
 
-  #validate(numbers) {
-    if (numbers.length !== 6) {
-      throw new Error("[ERROR] 로또 번호는 6개여야 합니다.");
+  #validate(eventDate) {
+    this.#validateNumber(eventDate);
+    this.#validateRange(eventDate);
+  }
+
+  #validateNumber(eventDate) {
+    const result = /^[1-9]\d*$/.test(eventDate);
+    if (!result) {
+      Console.print(ERROR.DATE);
     }
   }
 
-  // TODO: 추가 기능 구현
+  #validateRange(eventDate) {
+    if (1 <= Number(eventDate) && Number(eventDate) <= 31) {
+      Console.print(ERROR.DATE);
+    }
+  }
 }
 
 export default EventDate;

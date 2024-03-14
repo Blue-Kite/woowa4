@@ -5,6 +5,9 @@ class OutputView {
   printGreet() {
     Console.print(EXPLAIN.GREET);
   }
+  printInputDateError() {
+    Console.print(ERROR.DATE);
+  }
 }
 
 export default OutputView;
