@@ -26,6 +26,10 @@ class EventDate {
       Console.print(ERROR.DATE);
     }
   }
+
+  getEventDate() {
+    return this.#eventDate;
+  }
 }
 
 export default EventDate;
